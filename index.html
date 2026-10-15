@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta name="google-site-verification" content="G98J_6G4CUc3wW3AkAGYupGRYzAwCyX4uEPZtAiIDaQ" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tại sao website báo lỗi 403 khi truy cập tại TP.HCM? Nguyên nhân và cách khắc phục</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Chevrons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-dark: #121F28;
+            --accent-gold: #D4AF37;
+            --bg-white: #FFFFFF;
+            --bg-light: #F4F4F4;
+            --text-dark: #333333;
+            --text-muted: #555555;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--bg-white);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-dark);
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: var(--primary-dark);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        .logo-container img {
+            height: 40px;
+            object-fit: contain;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #121F28 0%, #1a2f3d 100%);
+            color: #FFFFFF;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 20px 80px 20px;
+            position: relative;
+        }
+
+        .hero h1 {
+            color: #FFFFFF;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            max-width: 950px;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .cta-button {
+            background-color: var(--accent-gold);
+            color: var(--primary-dark);
+            padding: 14px 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            display: inline-block;
+        }
+
+        .cta-button:hover {
+            background-color: #e6c547;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
+        }
+
+        /* Section Dividers CSS Gradient */
+        .section-divider {
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+            width: 100%;
+        }
+
+        /* Sections Background Alternation */
+        section {
+            padding: 80px 10%;
+        }
+
+        section:nth-of-type(odd) {
+            background-color: var(--bg-white);
+        }
+
+        section:nth-of-type(even) {
+            background-color: var(--bg-light);
+        }
+
+        .content-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: clamp(1.8rem, 3vw, 2.3rem);
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--accent-gold);
+        }
+
+        h3 {
+            font-size: 1.35rem;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: var(--primary-dark);
+        }
+
+        p, ul.text-list {
+            color: var(--text-muted);
+            margin-bottom: 20px;
+            font-size: 1rem;
+        }
+
+        ul.text-list {
+            padding-left: 20px;
+        }
+
+        ul.text-list li {
+            margin-bottom: 8px;
+        }
+
+        a {
+            color: var(--accent-gold);
+            text-decoration: underline;
+            font-weight: 600;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* FAQ Accordion Styles */
+        .faq-container {
+            margin-top: 30px;
+        }
+
+        .faq-card {
+            background-color: var(--bg-white);
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .faq-card:hover {
+            border-color: var(--accent-gold);
+            box-shadow: 0 5px 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: transparent;
+            border: none;
+            width: 100%;
+            text-align: left;
+        }
+
+        .faq-question i {
+            color: var(--accent-gold);
+            transition: transform 0.3s ease;
+            margin-left: 15px;
+        }
+
+        .faq-card.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            padding: 0 20px;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .faq-card.active .faq-answer {
+            max-height: 500px;
+            padding: 0 20px 20px 20px;
+        }
+
+        /* Responsive Navbar toggling (Mobile) */
+        .menu-toggle {
+            display: none;
+            color: #FFFFFF;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--primary-dark);
+                padding: 20px;
+                text-align: center;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            section {
+                padding: 60px 5%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo-container">
+            <img src="logo.webp" alt="ThabetHub Logo">
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fas fa-bars"></i>
+        </div>
+        <nav>
+            <ul id="nav-list">
+                <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+                <li><a href="#nguyen-nhan">Nguyên Nhân</a></li>
+                <li><a href="#dau-hieu">Dấu Hiệu</a></li>
+                <li><a href="#kiem-tra">Cách Kiểm Tra</a></li>
+                <li><a href="#khac-phuc">Khắc Phục</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1 data-aos="fade-up" data-aos-duration="1000">Tại sao website báo lỗi 403 khi truy cập tại TP.HCM? Nguyên nhân và cách khắc phục</h1>
+        <div data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+            <a href="#gioi-thieu" class="cta-button">Xem Hướng Dẫn Chi Tiết</a>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 1: Giới Thiệu -->
+    <section id="gioi-thieu">
+        <div class="content-container" data-aos="fade-up">
+            <h2>Giới Thiệu</h2>
+            <p>Lỗi HTTP 403 khi truy cập website tại TP.HCM là tình trạng khiến người dùng không thể xem nội dung dù kết nối Internet vẫn hoạt động bình thường. Trình duyệt thường hiển thị thông báo “403 Forbidden” hoặc “You don't have permission to access this resource”. Nguyên nhân có thể liên quan đến quyền truy cập, địa chỉ IP, cấu hình máy chủ hoặc hệ thống bảo mật của website. Để khắc phục, người dùng nên kiểm tra URL, tải lại trang, xóa bộ nhớ đệm và thử một kết nối khác. Nếu lỗi vẫn xuất hiện, hãy liên hệ quản trị viên website hoặc nhà cung cấp Internet để được hỗ trợ.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 2: Lỗi 403 Forbidden là gì -->
+    <section id="nguyen-nhan">
+        <div class="content-container" data-aos="fade-up">
+            <h2>1. Lỗi 403 Forbidden là gì và tại sao xảy ra tại TP.HCM?</h2>
+            <p>Lỗi HTTP 403 Forbidden xảy ra khi máy chủ nhận và hiểu yêu cầu từ trình duyệt nhưng từ chối cấp quyền truy cập vào tài nguyên được yêu cầu. Khác với lỗi 404, nghĩa là không tìm thấy tài nguyên, lỗi 403 cho biết quyền truy cập đang bị từ chối. Trong khi đó, lỗi 500 thường liên quan đến sự cố nội bộ của máy chủ.</p>
+            
+            <h3>Những nguyên nhân phổ biến gây lỗi 403</h3>
+            <p>Lỗi 403 có thể xuất hiện khi tài khoản không đủ quyền truy cập, máy chủ áp dụng quy tắc bảo mật nghiêm ngặt hoặc địa chỉ IP bị hệ thống bảo vệ chặn. Ngoài ra, cấu hình tường lửa ứng dụng web (WAF), quyền truy cập tệp hoặc thiết lập máy chủ không chính xác cũng có thể gây ra tình trạng này.</p>
+            
+            <h3>Vì sao lỗi có thể chỉ xuất hiện tại TP.HCM?</h3>
+            <p>Một số website sử dụng quy tắc lọc IP hoặc chính sách truy cập theo khu vực. Địa chỉ IP công cộng của người dùng tại TP.HCM cũng có thể bị hệ thống chống tấn công đánh dấu nhầm. Tuy nhiên, cần kiểm tra thông báo lỗi, kết nối và cấu hình liên quan trước khi kết luận nguyên nhân xuất phát từ vị trí địa lý hoặc nhà mạng.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 3: Dấu hiệu nhận biết -->
+    <section id="dau-hieu">
+        <div class="content-container" data-aos="fade-up">
+            <h2>2. Những dấu hiệu giúp xác định nguyên nhân lỗi 403</h2>
+            <p>Để xác định nguyên nhân gây lỗi 403, người dùng nên quan sát thông báo trên trình duyệt và kiểm tra phạm vi ảnh hưởng. Những dấu hiệu này giúp phân biệt sự cố liên quan đến thiết bị, kết nối mạng hay chính sách bảo mật của website.</p>
+            
+            <h3>Website hiển thị “403 Forbidden” hoặc “Access Denied”</h3>
+            <p>Thông báo “403 Forbidden” hoặc “Access Denied” cho thấy máy chủ đang từ chối yêu cầu truy cập. Một số website sử dụng CDN hoặc tường lửa ứng dụng web (WAF) nên có thể hiển thị thông báo riêng. Hãy ghi lại mã lỗi đầy đủ, nội dung thông báo và thời điểm xảy ra sự cố để hỗ trợ quá trình kiểm tra.</p>
+            
+            <h3>Lỗi chỉ xuất hiện trên một thiết bị hoặc một mạng</h3>
+            <p>Nếu chỉ một trình duyệt gặp lỗi, hãy kiểm tra cookie, phiên đăng nhập và tiện ích mở rộng. Nếu nhiều thiết bị cùng mạng bị ảnh hưởng, địa chỉ IP công cộng hoặc quy tắc mạng có thể là nguyên nhân. Khi lỗi xuất hiện trên nhiều thiết bị và mạng khác nhau, hãy kiểm tra trạng thái website hoặc liên hệ quản trị viên để được hỗ trợ.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 4: Cách kiểm tra -->
+    <section id="kiem-tra">
+        <div class="content-container" data-aos="fade-up">
+            <h2>3. Cách kiểm tra lỗi 403 trên điện thoại và máy tính</h2>
+            <p>Khi gặp lỗi 403, người dùng nên kiểm tra từng yếu tố theo thứ tự để xác định nguyên nhân mà không cần thay đổi nhiều cài đặt cùng lúc. Quy trình này áp dụng cho cả điện thoại và máy tính.</p>
+            
+            <h3>Kiểm tra URL, tài khoản và quyền truy cập</h3>
+            <p>Trước tiên, hãy xác minh địa chỉ URL, đường dẫn và tên miền để đảm bảo không có lỗi nhập liệu. Nếu website yêu cầu đăng nhập, hãy kiểm tra trạng thái phiên đăng nhập và xác nhận tài khoản có quyền xem nội dung đó. Một số tài nguyên chỉ dành cho người dùng được cấp quyền.</p>
+            
+            <h3>Thử trình duyệt và kết nối Internet khác</h3>
+            <p>Mở website bằng trình duyệt khác hoặc cửa sổ ẩn danh để kiểm tra ảnh hưởng của cookie và tiện ích mở rộng. Tiếp theo, thử chuyển giữa Wi-Fi và dữ liệu di động. Nếu phiên đăng nhập có dấu hiệu lỗi, hãy xóa cookie của riêng website rồi đăng nhập lại.</p>
+            
+            <h3>Kiểm tra phản hồi từ máy chủ</h3>
+            <p>Ghi lại thời điểm xảy ra lỗi và mã trạng thái HTTP. Nếu có trang trạng thái chính thức, hãy kiểm tra thông báo sự cố. Quản trị viên có thể xem access log, error log và nhật ký WAF để xác định yêu cầu bị từ chối.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 5: Địa chỉ IP hoặc nhà mạng -->
+    <section>
+        <div class="content-container" data-aos="fade-up">
+            <h2>4. Vì sao địa chỉ IP hoặc nhà mạng có thể liên quan đến lỗi 403?</h2>
+            <p>Địa chỉ IP và nhà cung cấp dịch vụ Internet (ISP) có thể ảnh hưởng đến khả năng truy cập website khi máy chủ sử dụng các quy tắc kiểm soát bảo mật. Tuy nhiên, lỗi 403 không đồng nghĩa với việc nhà mạng đang chặn website. Cần kiểm tra thêm trước khi xác định nguyên nhân.</p>
+            
+            <h3>Địa chỉ IP bị hệ thống bảo mật đánh dấu</h3>
+            <p>Hệ thống chống bot có thể nhận diện một yêu cầu là bất thường nếu phát hiện quá nhiều lượt truy cập trong thời gian ngắn hoặc địa chỉ IP có lịch sử hoạt động đáng ngờ. Với cơ chế CGNAT, nhiều người dùng có thể chia sẻ cùng một IP công cộng, khiến hoạt động của người khác vô tình ảnh hưởng đến quyền truy cập.</p>
+            
+            <h3>Tường lửa và chính sách truy cập theo khu vực</h3>
+            <p>Tường lửa ứng dụng web (WAF) có thể chặn yêu cầu dựa trên IP, quốc gia hoặc quy tắc bảo mật. Cấu hình sai cũng có thể khiến người dùng hợp lệ bị từ chối. Nếu lỗi chỉ xảy ra trên một <a href="https://thabethub.neocities.org/">ISP</a>, hãy ghi lại thời điểm, thông báo lỗi và loại kết nối, sau đó liên hệ nhà mạng hoặc quản trị viên website để kiểm tra.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 6: Cách khắc phục -->
+    <section id="khac-phuc">
+        <div class="content-container" data-aos="fade-up">
+            <h2>5. Cách khắc phục lỗi 403 Forbidden an toàn</h2>
+            <p>Khi gặp lỗi 403 Forbidden, người dùng nên bắt đầu bằng những biện pháp đơn giản và an toàn trước khi thay đổi cài đặt hệ thống. Không nên cố vượt qua các giới hạn truy cập hợp lệ hoặc cung cấp thông tin đăng nhập cho những nguồn không đáng tin cậy.</p>
+            
+            <h3>Xử lý lỗi trình duyệt và phiên đăng nhập</h3>
+            <p>Trước tiên, hãy tải lại trang sau một khoảng thời gian ngắn để kiểm tra xem lỗi có còn xuất hiện hay không. Nếu website yêu cầu tài khoản, hãy đăng xuất rồi đăng nhập lại. Người dùng cũng có thể xóa cookie và bộ nhớ đệm của riêng website khi nghi ngờ dữ liệu phiên bị lỗi. Nếu cần, hãy tắt tạm các tiện ích trình duyệt có khả năng can thiệp vào yêu cầu rồi thử lại.</p>
+            
+            <h3>Xử lý sự cố liên quan đến mạng</h3>
+            <p>Hãy thử một kết nối Internet khác để xác định phạm vi ảnh hưởng. Nếu Wi-Fi không ổn định, bạn có thể khởi động lại router. Tuy nhiên, đổi DNS thường không khắc phục trực tiếp lỗi 403 vì quyền truy cập thường được quyết định ở cấp máy chủ hoặc hệ thống bảo mật. Nếu lỗi vẫn tồn tại, hãy liên hệ quản trị viên website để được kiểm tra.</p>
+            
+            <h3>Khi nào nên dừng việc tự khắc phục?</h3>
+            <p>Nếu website yêu cầu quyền truy cập đặc biệt hoặc hiển thị cảnh báo bảo mật, người dùng nên dừng các thao tác tự khắc phục và liên hệ bộ phận hỗ trợ. Không nên cố vô hiệu hóa tường lửa, thay đổi cài đặt bảo mật hoặc tìm cách vượt qua những giới hạn truy cập hợp lệ. Hãy cung cấp mã lỗi, thời điểm xảy ra sự cố và thông tin trình duyệt để quản trị viên kiểm tra. Nếu nghi ngờ tài khoản bị hạn chế quyền, hãy yêu cầu xác minh quyền truy cập trước khi tiếp tục.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 7: Quản trị viên website -->
+    <section>
+        <div class="content-container" data-aos="fade-up">
+            <h2>6. Quản trị viên website cần kiểm tra gì khi người dùng gặp lỗi 403?</h2>
+            <p>Khi người dùng liên tục gặp lỗi 403, quản trị viên cần kiểm tra cấu hình máy chủ và hệ thống bảo mật để xác định nguyên nhân chính xác. Việc khắc phục nên dựa trên nhật ký và bằng chứng thực tế.</p>
+            
+            <h3>Kiểm tra quyền tệp và cấu hình máy chủ</h3>
+            <p>Hãy xem lại quyền đọc tệp, thư mục và cấu hình máy chủ web. Với Nginx hoặc Apache, cần kiểm tra các quy tắc phân quyền, đường dẫn tài nguyên và những thiết lập có thể vô tình từ chối người dùng hợp lệ.</p>
+            
+            <h3>Kiểm tra WAF, CDN và nhật ký lỗi</h3>
+            <p>Quản trị viên nên kiểm tra quy tắc tường lửa ứng dụng web (WAF), cấu hình CDN, danh sách IP bị chặn và các sự kiện bảo mật. Đối chiếu access log với error log giúp xác định yêu cầu nào bị từ chối và vì sao. Sau đó, hãy điều chỉnh đúng quy tắc gây lỗi thay vì tắt toàn bộ hệ thống bảo mật.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 8: Xác minh website & ThabetHub Link -->
+    <section>
+        <div class="content-container" data-aos="fade-up">
+            <h2>7. Cách xác minh website và bảo vệ thông tin cá nhân</h2>
+            <p>Khi gặp lỗi 403, người dùng nên xác minh website trước khi tiếp tục truy cập để tránh nguy cơ lừa đảo hoặc rò rỉ dữ liệu.</p>
+            
+            <h3>Kiểm tra tên miền và kênh hỗ trợ chính thức</h3>
+            <p>Hãy kiểm tra chính xác tên miền trước khi đăng nhập. Với <a href="https://thabethub.com/">ThabetHub</a>, chỉ sử dụng tên miền và kênh hỗ trợ đã được xác minh. Không chia sẻ mật khẩu hoặc mã xác thực qua nguồn không đáng tin cậy, đồng thời không kết luận website bị chặn chỉ dựa trên lỗi 403.</p>
+            
+            <h3>Nhận biết dấu hiệu đáng ngờ</h3>
+            <p>Tránh cài phần mềm lạ theo hướng dẫn không rõ nguồn gốc và không bỏ qua cảnh báo chứng chỉ bảo mật. Tuyệt đối không gửi thông tin tài khoản cho bên thứ ba chưa được xác minh.</p>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 9: FAQ Accordion -->
+    <section id="faq">
+        <div class="content-container" data-aos="fade-up">
+            <h2>Câu hỏi thường gặp về lỗi 403 khi truy cập website tại TP.HCM</h2>
+            
+            <div class="faq-container">
+                <div class="faq-card">
+                    <button class="faq-question">
+                        <span>Lỗi 403 có phải do nhà mạng chặn website không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Không nhất thiết. Lỗi có thể xuất phát từ quyền truy cập, địa chỉ IP, WAF hoặc cấu hình máy chủ. Cần kiểm tra thêm trước khi kết luận.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-question">
+                        <span>Đổi DNS có khắc phục được lỗi 403 không?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Thông thường không. Lỗi 403 cho biết máy chủ từ chối yêu cầu. Đổi DNS chỉ hữu ích nếu có thêm vấn đề phân giải tên miền.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-question">
+                        <span>Tại sao website mở được trên điện thoại nhưng không mở được trên máy tính?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Nguyên nhân có thể là cookie, phiên đăng nhập, tiện ích trình duyệt, địa chỉ IP hoặc chính sách bảo mật khác nhau.</p>
+                    </div>
+                </div>
+
+                <div class="faq-card">
+                    <button class="faq-question">
+                        <span>Khi nào cần liên hệ quản trị viên website?</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="faq-answer">
+                        <p>Hãy liên hệ quản trị viên nếu lỗi vẫn tồn tại sau các bước kiểm tra cơ bản hoặc bạn nghi ngờ IP hay tài khoản bị chặn nhầm.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- Section 10: Kết luận -->
+    <section>
+        <div class="content-container" data-aos="fade-up">
+            <h2>Kết luận</h2>
+            <p>Lỗi HTTP 403 thường liên quan đến quyền truy cập hoặc quy tắc bảo mật, không nhất thiết do nhà mạng chặn website. Người dùng nên kiểm tra URL, tài khoản, trình duyệt và kết nối Internet. Quản trị viên cần xem nhật ký máy chủ và WAF. Nếu lỗi kéo dài, hãy liên hệ bộ phận hỗ trợ phù hợp.</p>
+        </div>
+    </section>
+
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.getElementById('nav-list');
+
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+
+        // Close mobile menu on link click
+        document.querySelectorAll('nav ul li a').forEach(link => {
+            link.addEventListener('click', () => {
+                navList.classList.remove('active');
+            });
+        });
+
+        // FAQ Accordion Functionality
+        const faqCards = document.querySelectorAll('.faq-card');
+
+        faqCards.forEach(card => {
+            const questionBtn = card.querySelector('.faq-question');
+            questionBtn.addEventListener('click', () => {
+                faqCards.forEach(item => {
+                    if (item !== card) {
+                        item.classList.remove('active');
+                    }
+                });
+                card.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
