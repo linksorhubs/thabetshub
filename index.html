@@ -260,6 +260,76 @@
             padding: 0 20px 20px 20px;
         }
 
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-dark);
+            color: #FFFFFF;
+            padding: 50px 10% 30px 10%;
+            font-size: 0.95rem;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .footer-info h3 {
+            color: var(--accent-gold);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .footer-info p {
+            color: #CCCCCC;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        .footer-info p i {
+            color: var(--accent-gold);
+            margin-top: 4px;
+        }
+
+        .footer-info a {
+            color: var(--accent-gold);
+            text-decoration: none;
+        }
+
+        .footer-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-hashtags {
+            margin-top: 15px;
+        }
+
+        .footer-hashtags span {
+            display: inline-block;
+            background-color: rgba(212, 175, 55, 0.15);
+            color: var(--accent-gold);
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888888;
+            font-size: 0.85rem;
+        }
+
         /* Responsive Navbar toggling (Mobile) */
         .menu-toggle {
             display: none;
@@ -289,6 +359,9 @@
             }
             section {
                 padding: 60px 5%;
+            }
+            footer {
+                padding: 40px 5% 20px 5%;
             }
         }
     </style>
@@ -330,6 +403,15 @@
         <div class="content-container" data-aos="fade-up">
             <h2>Giới Thiệu</h2>
             <p>Lỗi HTTP 403 khi truy cập website tại TP.HCM là tình trạng khiến người dùng không thể xem nội dung dù kết nối Internet vẫn hoạt động bình thường. Trình duyệt thường hiển thị thông báo “403 Forbidden” hoặc “You don't have permission to access this resource”. Nguyên nhân có thể liên quan đến quyền truy cập, địa chỉ IP, cấu hình máy chủ hoặc hệ thống bảo mật của website. Để khắc phục, người dùng nên kiểm tra URL, tải lại trang, xóa bộ nhớ đệm và thử một kết nối khác. Nếu lỗi vẫn xuất hiện, hãy liên hệ quản trị viên website hoặc nhà cung cấp Internet để được hỗ trợ.</p>
+            
+            <h3>Giới Thiệu Về ThabetHub (Trang Chủ Khuyến Mãi 2026 - Ứng dụng trên Google Play)</h3>
+            <p><strong>ThabetHub</strong> là cổng thông tin, hướng dẫn và đánh giá độc lập, chuyên cung cấp kiến thức xoay quanh hệ sinh thái THABET dành cho người dùng Việt Nam. Với mục tiêu mang đến góc nhìn khách quan và thông tin hữu ích, ThabetHub giúp người đọc hiểu rõ hơn về cách truy cập an toàn, quy trình đăng ký, sử dụng ứng dụng, cũng như các vấn đề liên quan đến nạp rút và bảo mật tài khoản.</p>
+
+            <h3>Nội Dung Và Phạm Vi Hoạt Động</h3>
+            <p>ThabetHub cung cấp các bài viết chuyên sâu về nhiều chủ đề khác nhau. Người đọc có thể tìm thấy hướng dẫn chi tiết về cách truy cập an toàn, các bước đăng ký tài khoản, cách tải và sử dụng ứng dụng, cùng những lưu ý quan trọng trong quá trình nạp và rút tiền. Ngoài ra, ThabetHub còn dành dung lượng đáng kể để chia sẻ kiến thức về bảo mật thông tin, cách nhận diện các trang web giả mạo, và các nguyên tắc chơi có trách nhiệm. Tất cả nội dung đều mang tính chất hướng dẫn thông tin, giúp người dùng có cái nhìn tổng quan trước khi đưa ra quyết định.</p>
+
+            <h3>Cam Kết Độc Lập Và Minh Bạch</h3>
+            <p>Điều quan trọng cần làm rõ là ThabetHub không phải là nhà cái, không vận hành bàn cược, không giữ tiền người chơi và không thay mặt THABET xử lý tài khoản. Đây là cổng thông tin độc lập, hoạt động với mục đích cung cấp kiến thức và hướng dẫn. Mọi quyết định sử dụng dịch vụ bên thứ ba thuộc về trách nhiệm của người dùng. ThabetHub chỉ đóng vai trò là kênh tham khảo, không can thiệp vào bất kỳ giao dịch hay hoạt động nào của người chơi.</p>
         </div>
     </section>
 
@@ -511,6 +593,33 @@
             <p>Lỗi HTTP 403 thường liên quan đến quyền truy cập hoặc quy tắc bảo mật, không nhất thiết do nhà mạng chặn website. Người dùng nên kiểm tra URL, tài khoản, trình duyệt và kết nối Internet. Quản trị viên cần xem nhật ký máy chủ và WAF. Nếu lỗi kéo dài, hãy liên hệ bộ phận hỗ trợ phù hợp.</p>
         </div>
     </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <h3>ThabetHub</h3>
+                <p><i class="fas fa-globe"></i> Website: <a href="https://thabethub.com/" target="_blank">https://thabethub.com/</a></p>
+                <p><i class="fas fa-envelope"></i> Email: <a href="mailto:support@thabethub.com">support@thabethub.com</a></p>
+                <p><i class="fas fa-location-dot"></i> Địa chỉ: 36 Đ. Phổ Quang, Ward 2, Tân Sơn Hòa, Hồ Chí Minh 72100, Việt Nam</p>
+                <p><i class="fas fa-phone"></i> Hotline: <a href="tel:0926451919">0926451919</a></p>
+            </div>
+            <div class="footer-info">
+                <h3>Thẻ Hashtag</h3>
+                <div class="footer-hashtags">
+                    <span>#ThabetHub</span>
+                    <span>#THABET</span>
+                    <span>#huongdanTHABET</span>
+                    <span>#linkTHABET</span>
+                    <span>#appTHABET</span>
+                    <span>#thongtinTHABET</span>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 ThabetHub. All rights reserved.</p>
+        </div>
+    </footer>
 
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
